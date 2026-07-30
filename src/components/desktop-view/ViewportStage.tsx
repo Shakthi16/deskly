@@ -1,6 +1,7 @@
 import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from "react";
-import { AlertTriangle, ExternalLink, Loader2, MousePointer2, ShieldAlert } from "lucide-react";
+import { AlertTriangle, ExternalLink, Loader2, MousePointer2, ShieldAlert, X } from "lucide-react";
 import { BREAKPOINTS } from "@/lib/desktop-view/presets";
+import { isKnownFrameBlocker } from "@/lib/desktop-view/url";
 import { cn } from "@/lib/utils";
 
 export type LoadState = "idle" | "loading" | "slow" | "loaded" | "blocked";
@@ -64,13 +65,13 @@ export const ViewportStage = forwardRef<ViewportStageHandle, ViewportStageProps>
     const frameRef = useRef<HTMLIFrameElement>(null);
     const [cursor, setCursor] = useState<{ x: number; y: number } | null>(null);
     const [tapThrough, setTapThrough] = useState(false);
+    const [dismissed, setDismissed] = useState(false);
     const longPressTimer = useRef<number | null>(null);
 
     useImperativeHandle(ref, () => ({
       reload: () => {
         const frame = frameRef.current;
         if (!frame) return;
-        // Re-assigning src is the only cross-origin-safe way to reload a frame.
         const current = frame.src;
         frame.src = "about:blank";
         requestAnimationFrame(() => {
@@ -89,7 +90,15 @@ export const ViewportStage = forwardRef<ViewportStageHandle, ViewportStageProps>
     // Navigation reset & watchdog timer:
     useEffect(() => {
       if (!url) return;
+      setDismissed(false);
       hasLoadedRef.current = false;
+
+      // Immediate blocker check for known frame-rejecting domains (SBI, banks, Google, etc.)
+      if (isKnownFrameBlocker(url)) {
+        onLoadStateChangeRef.current("blocked");
+        return;
+      }
+
       onLoadStateChangeRef.current("loading");
       navStartRef.current = Date.now();
 
@@ -301,7 +310,7 @@ export const ViewportStage = forwardRef<ViewportStageHandle, ViewportStageProps>
           </div>
         )}
 
-        {url && loadState === "blocked" && (() => {
+        {url && loadState === "blocked" && !dismissed && (() => {
           const hostname = (() => { try { return new URL(openUrl).hostname; } catch { return openUrl; } })();
           return (
             <div
@@ -311,10 +320,25 @@ export const ViewportStage = forwardRef<ViewportStageHandle, ViewportStageProps>
               onTouchStart={(e) => e.stopPropagation()}
             >
               <div
-                className="dv-panel rounded-2xl border border-border/60 p-6 max-w-sm w-full text-center space-y-5 shadow-2xl bg-surface-raised"
+                className="dv-panel relative rounded-2xl border border-border/60 p-6 max-w-sm w-full text-center space-y-5 shadow-2xl bg-surface-raised"
                 onPointerDown={(e) => e.stopPropagation()}
                 onMouseDown={(e) => e.stopPropagation()}
               >
+                {/* Dismiss X button */}
+                <button
+                  type="button"
+                  aria-label="Close warning message"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setDismissed(true);
+                  }}
+                  onPointerDown={(e) => e.stopPropagation()}
+                  className="absolute right-3 top-3 rounded-full p-1.5 text-muted-foreground hover:bg-muted hover:text-foreground transition-colors cursor-pointer"
+                >
+                  <X className="size-4" />
+                </button>
+
                 {/* Icon */}
                 <div className="mx-auto flex size-14 items-center justify-center rounded-full bg-muted">
                   <ShieldAlert aria-hidden className="size-7 text-muted-foreground" />

@@ -98,7 +98,7 @@ export function DesktopViewApp() {
   const [activeTabId, setActiveTabId] = useState(() => "");
   const activeTab = tabs.find((t) => t.id === activeTabId) ?? tabs[0];
 
-  const [mode, setMode] = useState<"navigate" | "interact">("navigate");
+  const [mode, setMode] = useState<"navigate" | "interact">("interact");
   const loadState = activeTab?.loadState ?? "idle";
   const [fullscreen, setFullscreen] = useState(false);
   const [capabilities, setCapabilities] = useState<CapabilityReport | null>(null);

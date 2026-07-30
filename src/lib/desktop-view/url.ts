@@ -47,3 +47,50 @@ export function isSameOrigin(url: string): boolean {
 export function readerProxyUrl(url: string): string {
   return `https://r.jina.ai/${url}`;
 }
+
+const KNOWN_FRAME_BLOCKERS = [
+  "google.com",
+  "youtube.com",
+  "facebook.com",
+  "instagram.com",
+  "x.com",
+  "twitter.com",
+  "linkedin.com",
+  "amazon.com",
+  "github.com",
+  "reddit.com",
+  "netflix.com",
+  "chatgpt.com",
+  "icons8.com",
+  "onlinesbi.sbi.bank.in",
+  "sbi.co.in",
+  "sbi.bank.in",
+  "onlinesbi.com",
+  "hdfcbank.com",
+  "icicibank.com",
+  "axisbank.com",
+  "app.netlify.com",
+  "vercel.com",
+  "paypal.com",
+  "stripe.com",
+  "apple.com",
+  "microsoft.com",
+];
+
+/** Check if a URL hostname belongs to a domain known to send X-Frame-Options or CSP frame-ancestors headers. */
+export function isKnownFrameBlocker(url: string): boolean {
+  if (!url) return false;
+  try {
+    const host = new URL(url).hostname.toLowerCase().replace(/^www\./, "");
+    if (KNOWN_FRAME_BLOCKERS.some((b) => host === b || host.endsWith("." + b))) {
+      return true;
+    }
+    if (host.includes("bank") || host.includes("onlinesbi") || host.endsWith(".gov") || host.endsWith(".gov.in")) {
+      return true;
+    }
+    return false;
+  } catch {
+    return false;
+  }
+}
+
