@@ -1,5 +1,5 @@
 import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from "react";
-import { AlertTriangle, ExternalLink, Loader2, MousePointer2 } from "lucide-react";
+import { AlertTriangle, ExternalLink, Loader2, MousePointer2, ShieldAlert } from "lucide-react";
 import { BREAKPOINTS } from "@/lib/desktop-view/presets";
 import { cn } from "@/lib/utils";
 
@@ -87,8 +87,8 @@ export const ViewportStage = forwardRef<ViewportStageHandle, ViewportStageProps>
     useEffect(() => { onLoadStateChangeRef.current = onLoadStateChange; });
 
     // Two-stage watchdog:
-    // 1.5 s → show "slow" hint (still might load, but likely blocked)
-    // 3.5 s → definitely blocked, show full error card
+    // 1 s   → show "slow" hint (still might load, but likely blocked)
+    // 2.5 s → definitely blocked, show full friendly error card
     useEffect(() => {
       if (!url) return;
       onLoadStateChangeRef.current("loading");
@@ -100,12 +100,12 @@ export const ViewportStage = forwardRef<ViewportStageHandle, ViewportStageProps>
       slowRef.current = window.setTimeout(() => {
         onLoadStateChangeRef.current("slow");
         slowRef.current = null;
-      }, 1500);
+      }, 1000);
 
       watchdogRef.current = window.setTimeout(() => {
         onLoadStateChangeRef.current("blocked");
         watchdogRef.current = null;
-      }, 3500);
+      }, 2500);
 
       return () => {
         if (watchdogRef.current) { window.clearTimeout(watchdogRef.current); watchdogRef.current = null; }
@@ -288,34 +288,47 @@ export const ViewportStage = forwardRef<ViewportStageHandle, ViewportStageProps>
           </div>
         )}
 
-        {url && loadState === "blocked" && (
-          <div className="absolute inset-0 flex items-center justify-center p-6">
-            <div className="dv-panel rounded-2xl border border-destructive/30 p-6 max-w-sm w-full text-center space-y-4">
-              <div className="mx-auto flex size-12 items-center justify-center rounded-full bg-destructive/10">
-                <AlertTriangle aria-hidden className="size-6 text-destructive" />
+        {url && loadState === "blocked" && (() => {
+          const hostname = (() => { try { return new URL(url).hostname; } catch { return url; } })();
+          return (
+            <div className="absolute inset-0 flex items-center justify-center p-6">
+              <div className="dv-panel rounded-2xl border border-border/60 p-6 max-w-sm w-full text-center space-y-5">
+
+                {/* Icon */}
+                <div className="mx-auto flex size-14 items-center justify-center rounded-full bg-muted">
+                  <ShieldAlert aria-hidden className="size-7 text-muted-foreground" />
+                </div>
+
+                {/* Headline + explanation */}
+                <div className="space-y-2">
+                  <p className="text-base font-semibold text-foreground">
+                    This website can't be embedded
+                  </p>
+                  <p className="text-sm leading-relaxed text-muted-foreground">
+                    <span className="font-medium text-foreground">{hostname}</span> has
+                    a security policy that prevents it from being displayed inside
+                    another website. This is a deliberate choice by the site owner
+                    to protect their users — it's not a bug.
+                  </p>
+                  <p className="text-xs text-muted-foreground/70">
+                    Common examples: Gmail, GitHub, YouTube, banking sites,
+                    dashboards, and most login pages.
+                  </p>
+                </div>
+
+                {/* CTA */}
+                <a
+                  href={url}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+                >
+                  Open in your browser <ExternalLink aria-hidden className="size-4" />
+                </a>
               </div>
-              <div className="space-y-1.5">
-                <p className="font-semibold text-foreground">Can't embed this site</p>
-                <p className="text-xs leading-relaxed text-muted-foreground">
-                  <span className="font-medium text-foreground/70">
-                    {(() => { try { return new URL(url).hostname; } catch { return url; } })()}
-                  </span>{" "}
-                  blocks embedding via <code className="rounded bg-muted px-1 py-0.5 text-[10px]">X-Frame-Options</code> or{" "}
-                  <code className="rounded bg-muted px-1 py-0.5 text-[10px]">CSP frame-ancestors</code>. This is a server-level
-                  security policy enforced by the browser — it cannot be bypassed by any web app.
-                </p>
-              </div>
-              <a
-                href={url}
-                target="_blank"
-                rel="noreferrer noopener"
-                className="inline-flex items-center gap-1.5 rounded-lg bg-primary px-4 py-2 text-xs font-semibold text-primary-foreground transition-opacity hover:opacity-90"
-              >
-                Open in new tab <ExternalLink aria-hidden className="size-3" />
-              </a>
             </div>
-          </div>
-        )}
+          );
+        })()}
 
         {!url && (
           <div className="absolute inset-0 grid place-items-center p-6 text-center">
