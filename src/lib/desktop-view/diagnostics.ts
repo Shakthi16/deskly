@@ -22,7 +22,7 @@ const KNOWN_FRAME_BLOCKERS = [
 
 interface DiagnosticInput {
   url: string;
-  loadState: "idle" | "loading" | "loaded" | "blocked";
+  loadState: "idle" | "loading" | "slow" | "loaded" | "blocked";
   desktopMode: boolean;
   scale: number;
   width: number;
