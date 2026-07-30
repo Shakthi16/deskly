@@ -79,25 +79,31 @@ export const ViewportStage = forwardRef<ViewportStageHandle, ViewportStageProps>
     const watchdogRef = useRef<number | null>(null);
     const slowRef = useRef<number | null>(null);
     const navStartRef = useRef<number>(0);
+    // Store callback in a ref so the watchdog effect never re-runs just because
+    // the parent re-rendered and produced a new function reference. Without this,
+    // calling onLoadStateChange() triggers a state update → new callback reference
+    // → effect re-fires → calls onLoadStateChange("loading") again → ∞ loop.
+    const onLoadStateChangeRef = useRef(onLoadStateChange);
+    useEffect(() => { onLoadStateChangeRef.current = onLoadStateChange; });
 
     // Two-stage watchdog:
     // 1.5 s → show "slow" hint (still might load, but likely blocked)
     // 3.5 s → definitely blocked, show full error card
     useEffect(() => {
       if (!url) return;
-      onLoadStateChange("loading");
+      onLoadStateChangeRef.current("loading");
       navStartRef.current = Date.now();
 
       if (watchdogRef.current) window.clearTimeout(watchdogRef.current);
       if (slowRef.current) window.clearTimeout(slowRef.current);
 
       slowRef.current = window.setTimeout(() => {
-        onLoadStateChange("slow");
+        onLoadStateChangeRef.current("slow");
         slowRef.current = null;
       }, 1500);
 
       watchdogRef.current = window.setTimeout(() => {
-        onLoadStateChange("blocked");
+        onLoadStateChangeRef.current("blocked");
         watchdogRef.current = null;
       }, 3500);
 
@@ -105,7 +111,8 @@ export const ViewportStage = forwardRef<ViewportStageHandle, ViewportStageProps>
         if (watchdogRef.current) { window.clearTimeout(watchdogRef.current); watchdogRef.current = null; }
         if (slowRef.current) { window.clearTimeout(slowRef.current); slowRef.current = null; }
       };
-    }, [url, reloadToken, onLoadStateChange]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [url, reloadToken]); // intentionally excludes onLoadStateChange — use the ref above
 
     // Cursor + long-press pass-through, only meaningful in navigate mode.
     useEffect(() => {
