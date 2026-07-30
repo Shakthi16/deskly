@@ -78,17 +78,19 @@ export const ViewportStage = forwardRef<ViewportStageHandle, ViewportStageProps>
 
     const watchdogRef = useRef<number | null>(null);
 
-    // Load watchdog: a frame refused by X-Frame-Options/CSP never fires `load`
-    // with real content, so a timeout is the only observable signal available.
+    // Load watchdog: a frame refused by X-Frame-Options/CSP fires `load`
+    // immediately with a blank/empty document. We use a short timeout as a
+    // fallback for slow sites, and also inspect the frame on load.
     useEffect(() => {
       if (!url) return;
       onLoadStateChange("loading");
 
       if (watchdogRef.current) window.clearTimeout(watchdogRef.current);
+      // 8s is plenty for a real page; blocked frames resolve in <200ms
       watchdogRef.current = window.setTimeout(() => {
         onLoadStateChange("blocked");
         watchdogRef.current = null;
-      }, 12000);
+      }, 8000);
 
       return () => {
         if (watchdogRef.current) {
@@ -184,6 +186,24 @@ export const ViewportStage = forwardRef<ViewportStageHandle, ViewportStageProps>
                     window.clearTimeout(watchdogRef.current);
                     watchdogRef.current = null;
                   }
+                  // Detect X-Frame-Options / CSP frame-ancestors block:
+                  // Blocked frames fire onLoad instantly with an empty document.
+                  // We can't read cross-origin content, but we can check if the
+                  // frame src is still the target (not about:blank from a block).
+                  const frame = frameRef.current;
+                  try {
+                    // If we can read contentDocument it's same-origin — loaded fine.
+                    if (frame?.contentDocument !== null && frame?.contentDocument !== undefined) {
+                      const loc = frame.contentDocument.location?.href;
+                      if (!loc || loc === "about:blank") {
+                        onLoadStateChange("blocked");
+                        return;
+                      }
+                    }
+                  } catch {
+                    // Cross-origin: normal load — browser threw SecurityError trying to read.
+                    // That's expected for any cross-origin site that DOES embed fine.
+                  }
                   onLoadStateChange("loaded");
                 }}
                 onError={() => {
@@ -247,26 +267,30 @@ export const ViewportStage = forwardRef<ViewportStageHandle, ViewportStageProps>
         )}
 
         {url && loadState === "blocked" && (
-          <div className="absolute inset-x-4 bottom-4 mx-auto max-w-md">
-            <div className="dv-panel rounded-xl border border-destructive/40 p-4">
-              <div className="flex items-start gap-3">
-                <AlertTriangle aria-hidden className="mt-0.5 size-4 shrink-0 text-destructive" />
-                <div className="space-y-2 text-sm">
-                  <p className="font-semibold text-foreground">This site refused to be embedded</p>
-                  <p className="text-xs leading-relaxed text-muted-foreground">
-                    The server sent frame-ancestors or X-Frame-Options headers. That decision is
-                    enforced by the browser and cannot be overridden by a web page.
-                  </p>
-                  <a
-                    href={url}
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:underline"
-                  >
-                    Open in a new tab <ExternalLink aria-hidden className="size-3" />
-                  </a>
-                </div>
+          <div className="absolute inset-0 flex items-center justify-center p-6">
+            <div className="dv-panel rounded-2xl border border-destructive/30 p-6 max-w-sm w-full text-center space-y-4">
+              <div className="mx-auto flex size-12 items-center justify-center rounded-full bg-destructive/10">
+                <AlertTriangle aria-hidden className="size-6 text-destructive" />
               </div>
+              <div className="space-y-1.5">
+                <p className="font-semibold text-foreground">Can't embed this site</p>
+                <p className="text-xs leading-relaxed text-muted-foreground">
+                  <span className="font-medium text-foreground/70">
+                    {(() => { try { return new URL(url).hostname; } catch { return url; } })()}
+                  </span>{" "}
+                  blocks embedding via <code className="rounded bg-muted px-1 py-0.5 text-[10px]">X-Frame-Options</code> or{" "}
+                  <code className="rounded bg-muted px-1 py-0.5 text-[10px]">CSP frame-ancestors</code>. This is a server-level
+                  security policy enforced by the browser — it cannot be bypassed by any web app.
+                </p>
+              </div>
+              <a
+                href={url}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="inline-flex items-center gap-1.5 rounded-lg bg-primary px-4 py-2 text-xs font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+              >
+                Open in new tab <ExternalLink aria-hidden className="size-3" />
+              </a>
             </div>
           </div>
         )}
