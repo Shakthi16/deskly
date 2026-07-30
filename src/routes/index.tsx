@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { DesktopViewApp } from "@/components/desktop-view/DesktopViewApp";
 
-const TITLE = "Desktop View — Browse Any Site in a Laptop Viewport";
+const TITLE = "Deskly — Virtual Desktop Display for Mobile Browsers";
 const DESCRIPTION =
-  "Render websites inside a fixed 1366×768 to 1920×1080 virtual laptop display on your phone, with pinch-zoom, pan, breakpoint rulers and live compatibility analysis.";
+  "Deskly lets you render websites inside a fixed 1366×768 to 1920×1080 virtual desktop display on your phone or tablet.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -22,7 +22,7 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <>
-      <h1 className="sr-only">Desktop View — a virtual laptop display for mobile browsers</h1>
+      <h1 className="sr-only">Deskly — a virtual desktop display for mobile browsers</h1>
       <DesktopViewApp />
     </>
   );

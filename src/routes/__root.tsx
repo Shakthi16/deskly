@@ -83,7 +83,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content: "width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1",
       },
       { name: "theme-color", content: "#20262e" },
-      { name: "author", content: "Desktop View" },
+      { name: "author", content: "Deskly" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
