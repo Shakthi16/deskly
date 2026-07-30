@@ -646,6 +646,7 @@ export function DesktopViewApp() {
               stageRef={stageRef}
               layerRef={layerRef}
               url={activeTab?.url ?? ""}
+              openUrl={currentUrl}
               reloadToken={activeTab?.reloadToken ?? 0}
               width={displayWidth}
               height={displayHeight}

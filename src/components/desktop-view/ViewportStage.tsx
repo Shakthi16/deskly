@@ -7,6 +7,8 @@ export type LoadState = "idle" | "loading" | "slow" | "loaded" | "blocked";
 
 interface ViewportStageProps {
   url: string;
+  /** The clean URL to open in the browser (address bar value, not proxy URL). */
+  openUrl: string;
   reloadToken: number;
   width: number;
   height: number;
@@ -42,6 +44,7 @@ export const ViewportStage = forwardRef<ViewportStageHandle, ViewportStageProps>
   function ViewportStage(
     {
       url,
+      openUrl,
       reloadToken,
       width,
       height,
@@ -87,8 +90,9 @@ export const ViewportStage = forwardRef<ViewportStageHandle, ViewportStageProps>
     useEffect(() => { onLoadStateChangeRef.current = onLoadStateChange; });
 
     // Two-stage watchdog:
-    // 1 s   → show "slow" hint (still might load, but likely blocked)
-    // 2.5 s → definitely blocked, show full friendly error card
+    // 2 s   → show "slow" hint (site is taking longer than usual, might be blocked)
+    // 6 s   → show blocked error (site almost certainly blocks embedding)
+    // The 350 ms timing heuristic on onLoad catches blocked sites much faster.
     useEffect(() => {
       if (!url) return;
       onLoadStateChangeRef.current("loading");
@@ -100,12 +104,12 @@ export const ViewportStage = forwardRef<ViewportStageHandle, ViewportStageProps>
       slowRef.current = window.setTimeout(() => {
         onLoadStateChangeRef.current("slow");
         slowRef.current = null;
-      }, 1000);
+      }, 2000);
 
       watchdogRef.current = window.setTimeout(() => {
         onLoadStateChangeRef.current("blocked");
         watchdogRef.current = null;
-      }, 2500);
+      }, 6000);
 
       return () => {
         if (watchdogRef.current) { window.clearTimeout(watchdogRef.current); watchdogRef.current = null; }
@@ -201,7 +205,6 @@ export const ViewportStage = forwardRef<ViewportStageHandle, ViewportStageProps>
 
                   const frame = frameRef.current;
 
-                  // ── Detect blocked frames ──────────────────────────────────
                   // 1. Same-origin check: accessible empty document = blocked.
                   try {
                     const doc = frame?.contentDocument;
@@ -216,13 +219,17 @@ export const ViewportStage = forwardRef<ViewportStageHandle, ViewportStageProps>
                     // SecurityError: cross-origin content. Fall through to timing check.
                   }
 
-                  // 2. Timing heuristic: blocked frames (Chrome cancels on header
-                  //    receipt) resolve in <300 ms. Legitimate pages take longer.
+                  // 2. Timing heuristic: blocked frames fire onLoad in <350 ms
+                  //    (Chrome cancels immediately on header receipt).
+                  //    Legitimate pages take longer.
+                  //    If we're over 350 ms, it's real content — always mark as
+                  //    loaded even if the watchdog already fired "blocked".
                   if (Date.now() - navStartRef.current < 350) {
                     onLoadStateChange("blocked");
                     return;
                   }
 
+                  // Real page loaded — override any premature "blocked" state.
                   onLoadStateChange("loaded");
                 }}
                 onError={() => {
@@ -289,7 +296,7 @@ export const ViewportStage = forwardRef<ViewportStageHandle, ViewportStageProps>
         )}
 
         {url && loadState === "blocked" && (() => {
-          const hostname = (() => { try { return new URL(url).hostname; } catch { return url; } })();
+          const hostname = (() => { try { return new URL(openUrl).hostname; } catch { return openUrl; } })();
           return (
             <div className="absolute inset-0 flex items-center justify-center p-6">
               <div className="dv-panel rounded-2xl border border-border/60 p-6 max-w-sm w-full text-center space-y-5">
@@ -316,9 +323,9 @@ export const ViewportStage = forwardRef<ViewportStageHandle, ViewportStageProps>
                   </p>
                 </div>
 
-                {/* CTA */}
+                {/* CTA — uses openUrl (address bar URL) not the internal iframe URL */}
                 <a
-                  href={url}
+                  href={openUrl}
                   target="_blank"
                   rel="noreferrer noopener"
                   className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
