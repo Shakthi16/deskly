@@ -1,0 +1,286 @@
+Port 5173 is in use, trying another one...
+Port 5174 is in use, trying another one...
+
+  [32m[1mVITE[22m v8.1.5[39m  [2mready in [0m[1m2560[22m[2m[0m ms[22m
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5175[22m/[39m
+[2m  [32m➜[39m  [1mNetwork[22m[2m: use [22m[1m--host[22m[2m to expose[22m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modiFile D:\Deskly\src\routeTree.gen.ts was modFile D:\Deskly\src\routeTree.gen.ts was modiFile D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:51:01 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m connected.
+[2m4:53:43 pm[22m [36m[1m[vite][22m[39m [File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:54:16 pm[22m [36m[1m[vite][22m[39m [32mvite.config.ts changed, restarting server...[39m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:54:42 pm[22m [36m[1m[vite][22m[39m [32mvite.config.ts changed, restarting server...[39m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:54:52 pm[22m [36m[1m[vite][22m[39m [32mvite.config.ts changed, restarting server...[39m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:54:53 pm[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m Re-optimizing dependencies because vite config has changed
+[2m4:54:53 pm[22m [36m[1m[vite][22m[39m server restarted.
+[2m4:54:54 pm[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [optimizer] bundling dependencies...
+gen.ts[22m
+[2m4:53:47 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:53:47 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:53:47 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:53:47 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:53:47 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:53:47 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:53:47 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:53:47 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:53:47 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:53:48 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:53:48 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:53:48 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:53:48 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:53:48 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:53:48 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:53:48 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:53:48 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:53:48 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:53:49 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:53:49 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:53:49 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:53:49 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:53:49 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:53:49 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:53:49 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:53:49 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:54:00 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:00 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:54:01 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:01 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:01 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:01 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:01 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:01 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:01 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:01 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:01 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:01 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:54:01 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:02 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:02 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:02 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:02 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:54:02 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:02 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:02 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:54:02 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:02 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:02 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:54:03 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:03 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:54:03 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:03 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:03 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:03 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:04 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:54:04 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:04 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:54:04 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:04 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:54:04 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:04 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:04 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:04 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:04 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:05 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:05 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:05 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:54:05 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:05 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:05 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:05 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:54:05 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:54:05 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:05 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:05 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:54:05 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:05 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:05 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:06 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:54:06 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:06 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:06 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:54:06 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:06 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:06 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:06 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:06 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:06 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:54:07 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:54:07 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:07 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:07 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:07 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:07 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:07 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:54:07 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:07 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:54:07 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:07 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:54:08 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:08 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:08 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:54:08 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:54:08 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:54:08 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:08 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:54:08 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:08 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:16 pm[22m [36m[1m[vite][22m[39m [32mvite.config.ts changed, restarting server...[39m
+[2m4:54:16 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:54:16 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:16 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:16 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:17 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:17 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:54:17 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:54:17 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:54:17 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:54:17 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:17 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:17 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:17 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:17 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:54:18 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:42 pm[22m [36m[1m[vite][22m[39m [32mvite.config.ts changed, restarting server...[39m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:54:42 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:42 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:42 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:42 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:42 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:43 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:54:43 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:43 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:43 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:43 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:43 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:43 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:54:43 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:54:43 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:43 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:54:43 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:54:43 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:54:44 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:44 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:54:44 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:44 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:44 pm[22m [36m[1m[vite][22m[39m [34m[2m(ssr)[22m[39m [32mpage reload [39m[2msrc/routeTree.gen.ts[22m
+[2m4:54:52 pm[22m [36m[1m[vite][22m[39m [32mvite.config.ts changed, restarting server...[39m
+[2m4:54:53 pm[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m Re-optimizing dependencies because vite config has changed
+File D:\Deskly\src\routeTree.gen.ts was modified by another process during processing.
+[2m4:54:53 pm[22m [36m[1m[vite][22m[39m server restarted.
+[2m4:54:54 pm[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [optimizer] bundling dependencies...
