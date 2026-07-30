@@ -3,7 +3,7 @@ import { AlertTriangle, ExternalLink, Loader2, MousePointer2 } from "lucide-reac
 import { BREAKPOINTS } from "@/lib/desktop-view/presets";
 import { cn } from "@/lib/utils";
 
-export type LoadState = "idle" | "loading" | "loaded" | "blocked";
+export type LoadState = "idle" | "loading" | "slow" | "loaded" | "blocked";
 
 interface ViewportStageProps {
   url: string;
@@ -77,27 +77,33 @@ export const ViewportStage = forwardRef<ViewportStageHandle, ViewportStageProps>
     }));
 
     const watchdogRef = useRef<number | null>(null);
+    const slowRef = useRef<number | null>(null);
     const navStartRef = useRef<number>(0);
 
-    // Load watchdog: Chrome silently cancels frame navigation blocked by
-    // X-Frame-Options/CSP and never fires `load`. 3 s is enough for real pages;
-    // blocked frames leave the watchdog to be the only observable signal.
+    // Two-stage watchdog:
+    // 1.5 s → show "slow" hint (still might load, but likely blocked)
+    // 3.5 s → definitely blocked, show full error card
     useEffect(() => {
       if (!url) return;
       onLoadStateChange("loading");
       navStartRef.current = Date.now();
 
       if (watchdogRef.current) window.clearTimeout(watchdogRef.current);
+      if (slowRef.current) window.clearTimeout(slowRef.current);
+
+      slowRef.current = window.setTimeout(() => {
+        onLoadStateChange("slow");
+        slowRef.current = null;
+      }, 1500);
+
       watchdogRef.current = window.setTimeout(() => {
         onLoadStateChange("blocked");
         watchdogRef.current = null;
-      }, 3000);
+      }, 3500);
 
       return () => {
-        if (watchdogRef.current) {
-          window.clearTimeout(watchdogRef.current);
-          watchdogRef.current = null;
-        }
+        if (watchdogRef.current) { window.clearTimeout(watchdogRef.current); watchdogRef.current = null; }
+        if (slowRef.current) { window.clearTimeout(slowRef.current); slowRef.current = null; }
       };
     }, [url, reloadToken, onLoadStateChange]);
 
@@ -183,16 +189,13 @@ export const ViewportStage = forwardRef<ViewportStageHandle, ViewportStageProps>
                 allow="clipboard-write; fullscreen; autoplay; encrypted-media; picture-in-picture"
                 sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-downloads allow-modals allow-presentation"
                 onLoad={() => {
-                  if (watchdogRef.current) {
-                    window.clearTimeout(watchdogRef.current);
-                    watchdogRef.current = null;
-                  }
+                  if (watchdogRef.current) { window.clearTimeout(watchdogRef.current); watchdogRef.current = null; }
+                  if (slowRef.current) { window.clearTimeout(slowRef.current); slowRef.current = null; }
 
                   const frame = frameRef.current;
 
                   // ── Detect blocked frames ──────────────────────────────────
-                  // 1. Same-origin check: if we can read contentDocument and it
-                  //    is empty (about:blank or null body), the frame was blocked.
+                  // 1. Same-origin check: accessible empty document = blocked.
                   try {
                     const doc = frame?.contentDocument;
                     if (doc !== null && doc !== undefined) {
@@ -206,10 +209,8 @@ export const ViewportStage = forwardRef<ViewportStageHandle, ViewportStageProps>
                     // SecurityError: cross-origin content. Fall through to timing check.
                   }
 
-                  // 2. Timing heuristic: a real page needs network + parse time.
-                  //    Frames blocked by X-Frame-Options fire onLoad in <300 ms
-                  //    because the browser rejects them immediately after headers.
-                  //    Legitimate pages almost always take longer.
+                  // 2. Timing heuristic: blocked frames (Chrome cancels on header
+                  //    receipt) resolve in <300 ms. Legitimate pages take longer.
                   if (Date.now() - navStartRef.current < 350) {
                     onLoadStateChange("blocked");
                     return;
@@ -218,10 +219,8 @@ export const ViewportStage = forwardRef<ViewportStageHandle, ViewportStageProps>
                   onLoadStateChange("loaded");
                 }}
                 onError={() => {
-                  if (watchdogRef.current) {
-                    window.clearTimeout(watchdogRef.current);
-                    watchdogRef.current = null;
-                  }
+                  if (watchdogRef.current) { window.clearTimeout(watchdogRef.current); watchdogRef.current = null; }
+                  if (slowRef.current) { window.clearTimeout(slowRef.current); slowRef.current = null; }
                   onLoadStateChange("blocked");
                 }}
                 className="block h-full w-full border-0 bg-white"
@@ -268,11 +267,16 @@ export const ViewportStage = forwardRef<ViewportStageHandle, ViewportStageProps>
           </div>
         )}
 
-        {url && loadState === "loading" && (
+        {url && (loadState === "loading" || loadState === "slow") && (
           <div className="pointer-events-none absolute inset-x-0 top-0 flex justify-center p-4">
-            <div className="dv-panel flex items-center gap-2 rounded-full px-3 py-1.5 text-xs text-muted-foreground">
+            <div className={cn(
+              "dv-panel flex items-center gap-2 rounded-full px-3 py-1.5 text-xs",
+              loadState === "slow" ? "text-warning" : "text-muted-foreground"
+            )}>
               <Loader2 aria-hidden className="size-3.5 motion-safe:animate-spin" />
-              Rendering at {width} × {height}
+              {loadState === "slow"
+                ? "Site may not allow embedding…"
+                : `Rendering at ${width} × ${height}`}
             </div>
           </div>
         )}

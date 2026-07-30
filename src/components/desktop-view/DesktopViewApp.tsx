@@ -389,7 +389,7 @@ export function DesktopViewApp() {
           value={activeTab?.draft ?? ""}
           committedUrl={currentUrl}
           bookmarked={bookmarked}
-          loading={loadState === "loading"}
+          loading={loadState === "loading" || loadState === "slow"}
           canGoBack={!!activeTab && activeTab.historyIndex > 0}
           canGoForward={!!activeTab && activeTab.historyIndex < activeTab.history.length - 1}
           onChange={(v) => activeTab && updateTab(activeTab.id, { draft: v })}
