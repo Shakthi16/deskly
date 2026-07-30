@@ -212,6 +212,12 @@ export const ViewportStage = forwardRef<ViewportStageHandle, ViewportStageProps>
                   if (watchdogRef.current) { window.clearTimeout(watchdogRef.current); watchdogRef.current = null; }
                   if (slowRef.current) { window.clearTimeout(slowRef.current); slowRef.current = null; }
 
+                  if (isKnownFrameBlocker(url)) {
+                    hasLoadedRef.current = false;
+                    onLoadStateChange("blocked");
+                    return;
+                  }
+
                   const frame = frameRef.current;
                   if (!frame) return;
 
