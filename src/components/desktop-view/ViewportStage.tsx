@@ -77,20 +77,21 @@ export const ViewportStage = forwardRef<ViewportStageHandle, ViewportStageProps>
     }));
 
     const watchdogRef = useRef<number | null>(null);
+    const navStartRef = useRef<number>(0);
 
-    // Load watchdog: a frame refused by X-Frame-Options/CSP fires `load`
-    // immediately with a blank/empty document. We use a short timeout as a
-    // fallback for slow sites, and also inspect the frame on load.
+    // Load watchdog: Chrome silently cancels frame navigation blocked by
+    // X-Frame-Options/CSP and never fires `load`. 3 s is enough for real pages;
+    // blocked frames leave the watchdog to be the only observable signal.
     useEffect(() => {
       if (!url) return;
       onLoadStateChange("loading");
+      navStartRef.current = Date.now();
 
       if (watchdogRef.current) window.clearTimeout(watchdogRef.current);
-      // 8s is plenty for a real page; blocked frames resolve in <200ms
       watchdogRef.current = window.setTimeout(() => {
         onLoadStateChange("blocked");
         watchdogRef.current = null;
-      }, 8000);
+      }, 3000);
 
       return () => {
         if (watchdogRef.current) {
@@ -186,24 +187,34 @@ export const ViewportStage = forwardRef<ViewportStageHandle, ViewportStageProps>
                     window.clearTimeout(watchdogRef.current);
                     watchdogRef.current = null;
                   }
-                  // Detect X-Frame-Options / CSP frame-ancestors block:
-                  // Blocked frames fire onLoad instantly with an empty document.
-                  // We can't read cross-origin content, but we can check if the
-                  // frame src is still the target (not about:blank from a block).
+
                   const frame = frameRef.current;
+
+                  // ── Detect blocked frames ──────────────────────────────────
+                  // 1. Same-origin check: if we can read contentDocument and it
+                  //    is empty (about:blank or null body), the frame was blocked.
                   try {
-                    // If we can read contentDocument it's same-origin — loaded fine.
-                    if (frame?.contentDocument !== null && frame?.contentDocument !== undefined) {
-                      const loc = frame.contentDocument.location?.href;
-                      if (!loc || loc === "about:blank") {
+                    const doc = frame?.contentDocument;
+                    if (doc !== null && doc !== undefined) {
+                      const href = doc.location?.href ?? "";
+                      if (!href || href === "about:blank") {
                         onLoadStateChange("blocked");
                         return;
                       }
                     }
                   } catch {
-                    // Cross-origin: normal load — browser threw SecurityError trying to read.
-                    // That's expected for any cross-origin site that DOES embed fine.
+                    // SecurityError: cross-origin content. Fall through to timing check.
                   }
+
+                  // 2. Timing heuristic: a real page needs network + parse time.
+                  //    Frames blocked by X-Frame-Options fire onLoad in <300 ms
+                  //    because the browser rejects them immediately after headers.
+                  //    Legitimate pages almost always take longer.
+                  if (Date.now() - navStartRef.current < 350) {
+                    onLoadStateChange("blocked");
+                    return;
+                  }
+
                   onLoadStateChange("loaded");
                 }}
                 onError={() => {
