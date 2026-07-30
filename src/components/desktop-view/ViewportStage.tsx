@@ -82,19 +82,14 @@ export const ViewportStage = forwardRef<ViewportStageHandle, ViewportStageProps>
     const watchdogRef = useRef<number | null>(null);
     const slowRef = useRef<number | null>(null);
     const navStartRef = useRef<number>(0);
-    // Store callback in a ref so the watchdog effect never re-runs just because
-    // the parent re-rendered and produced a new function reference. Without this,
-    // calling onLoadStateChange() triggers a state update → new callback reference
-    // → effect re-fires → calls onLoadStateChange("loading") again → ∞ loop.
+    const hasLoadedRef = useRef<boolean>(false);
     const onLoadStateChangeRef = useRef(onLoadStateChange);
     useEffect(() => { onLoadStateChangeRef.current = onLoadStateChange; });
 
-    // Two-stage watchdog:
-    // 2 s   → show "slow" hint (site is taking longer than usual, might be blocked)
-    // 6 s   → show blocked error (site almost certainly blocks embedding)
-    // The 350 ms timing heuristic on onLoad catches blocked sites much faster.
+    // Navigation reset & watchdog timer:
     useEffect(() => {
       if (!url) return;
+      hasLoadedRef.current = false;
       onLoadStateChangeRef.current("loading");
       navStartRef.current = Date.now();
 
@@ -102,14 +97,19 @@ export const ViewportStage = forwardRef<ViewportStageHandle, ViewportStageProps>
       if (slowRef.current) window.clearTimeout(slowRef.current);
 
       slowRef.current = window.setTimeout(() => {
-        onLoadStateChangeRef.current("slow");
+        if (!hasLoadedRef.current) {
+          onLoadStateChangeRef.current("slow");
+        }
         slowRef.current = null;
-      }, 2000);
+      }, 2500);
 
       watchdogRef.current = window.setTimeout(() => {
-        onLoadStateChangeRef.current("blocked");
+        // Only mark blocked if the frame hasn't fired a valid onLoad event!
+        if (!hasLoadedRef.current) {
+          onLoadStateChangeRef.current("blocked");
+        }
         watchdogRef.current = null;
-      }, 6000);
+      }, 10000);
 
       return () => {
         if (watchdogRef.current) { window.clearTimeout(watchdogRef.current); watchdogRef.current = null; }
@@ -204,32 +204,38 @@ export const ViewportStage = forwardRef<ViewportStageHandle, ViewportStageProps>
                   if (slowRef.current) { window.clearTimeout(slowRef.current); slowRef.current = null; }
 
                   const frame = frameRef.current;
+                  if (!frame) return;
 
-                  // 1. Same-origin check: accessible empty document = blocked.
+                  // ── Accurate Blocked Frame Detection ───────────────────────
+                  // When a browser (Chrome/Edge/Firefox) blocks an iframe due to
+                  // X-Frame-Options or CSP frame-ancestors:
+                  // 1. If contentDocument is accessible and has empty/about:blank -> BLOCKED.
+                  // 2. Accessing contentWindow.origin returns "null" or "about:blank" -> BLOCKED.
+                  // 3. Accessing contentWindow.origin throws SecurityError -> REAL CROSS-ORIGIN SITE LOADED!
                   try {
-                    const doc = frame?.contentDocument;
+                    const doc = frame.contentDocument;
                     if (doc !== null && doc !== undefined) {
                       const href = doc.location?.href ?? "";
-                      if (!href || href === "about:blank") {
+                      if (!href || href === "about:blank" || doc.body?.innerHTML === "") {
+                        hasLoadedRef.current = false;
                         onLoadStateChange("blocked");
                         return;
                       }
                     }
+
+                    const origin = frame.contentWindow?.origin;
+                    if (origin === "null" || origin === "about:blank") {
+                      hasLoadedRef.current = false;
+                      onLoadStateChange("blocked");
+                      return;
+                    }
                   } catch {
-                    // SecurityError: cross-origin content. Fall through to timing check.
+                    // SecurityError thrown: This ONLY occurs when a real, cross-origin
+                    // website (like mcassure.com) successfully loaded!
                   }
 
-                  // 2. Timing heuristic: blocked frames fire onLoad in <350 ms
-                  //    (Chrome cancels immediately on header receipt).
-                  //    Legitimate pages take longer.
-                  //    If we're over 350 ms, it's real content — always mark as
-                  //    loaded even if the watchdog already fired "blocked".
-                  if (Date.now() - navStartRef.current < 350) {
-                    onLoadStateChange("blocked");
-                    return;
-                  }
-
-                  // Real page loaded — override any premature "blocked" state.
+                  // Successfully loaded
+                  hasLoadedRef.current = true;
                   onLoadStateChange("loaded");
                 }}
                 onError={() => {
@@ -298,9 +304,17 @@ export const ViewportStage = forwardRef<ViewportStageHandle, ViewportStageProps>
         {url && loadState === "blocked" && (() => {
           const hostname = (() => { try { return new URL(openUrl).hostname; } catch { return openUrl; } })();
           return (
-            <div className="absolute inset-0 flex items-center justify-center p-6">
-              <div className="dv-panel rounded-2xl border border-border/60 p-6 max-w-sm w-full text-center space-y-5">
-
+            <div
+              className="absolute inset-0 z-50 flex items-center justify-center p-6 pointer-events-auto bg-background/60 backdrop-blur-sm"
+              onPointerDown={(e) => e.stopPropagation()}
+              onMouseDown={(e) => e.stopPropagation()}
+              onTouchStart={(e) => e.stopPropagation()}
+            >
+              <div
+                className="dv-panel rounded-2xl border border-border/60 p-6 max-w-sm w-full text-center space-y-5 shadow-2xl bg-surface-raised"
+                onPointerDown={(e) => e.stopPropagation()}
+                onMouseDown={(e) => e.stopPropagation()}
+              >
                 {/* Icon */}
                 <div className="mx-auto flex size-14 items-center justify-center rounded-full bg-muted">
                   <ShieldAlert aria-hidden className="size-7 text-muted-foreground" />
@@ -323,15 +337,21 @@ export const ViewportStage = forwardRef<ViewportStageHandle, ViewportStageProps>
                   </p>
                 </div>
 
-                {/* CTA — uses openUrl (address bar URL) not the internal iframe URL */}
-                <a
-                  href={openUrl}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+                {/* Interactive CTA button */}
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    if (openUrl) {
+                      window.open(openUrl, "_blank", "noopener,noreferrer");
+                    }
+                  }}
+                  onPointerDown={(e) => e.stopPropagation()}
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-all hover:opacity-90 active:scale-[0.98] cursor-pointer"
                 >
                   Open in your browser <ExternalLink aria-hidden className="size-4" />
-                </a>
+                </button>
               </div>
             </div>
           );
